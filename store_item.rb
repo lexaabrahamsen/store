@@ -1,8 +1,8 @@
-store = [
-  { "type" => "apple", "color" => "red", "price" => 1 },
-  { "type" => "banana", "color" => "yellow", "price" => 2},
-  { "type" => "pear", "color" => "green", "price" => 3}
-]
+# store = [
+#   { "type" => "apple", "color" => "red", "price" => 1 },
+#   { "type" => "banana", "color" => "yellow", "price" => 2},
+#   { "type" => "pear", "color" => "green", "price" => 3}
+# ]
 
 class Store
   attr_reader :type, :color
@@ -38,7 +38,22 @@ class Store
 
 end
 
+class Food < Store
+  attr_reader :store
+
+  def initialize(input_options)
+    super
+    @store = input_options[:store]
+  end
+
+  def carry_food
+    @input_options[:]
+  end
+
+end
+
 
 store1 = Store.new({:type => "apple", :color => "red", :price => 1})
 
 store1.print_info
+
